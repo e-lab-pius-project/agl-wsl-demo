@@ -2,6 +2,8 @@
 
 実車やUSB-CANを使わず、WSL から QEMU 内の AGL に車速を入力します。
 
+物理アダプターを使う場合は [USB-CAN接続手順](USB_CAN.md) を参照してください。cannelloniは双方向のため、本書の模擬送信試験と物理CAN接続は切り替えて使用します。
+
 `WSL vcan_agl → cannelloni (TCP) → AGL can0 (vcan) → kuksa-can-provider → KUKSA Vehicle.Speed`
 
 cannelloni は CAN フレームをネットワーク越しに運ぶツールです。この手順では TCP を使います。QEMU に仮想PCI CANカードを追加する必要はありません。AGL のこのイメージには cannelloni、can-utils、仮想 can0、KUKSA が含まれています。

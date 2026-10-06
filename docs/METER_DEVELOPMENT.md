@@ -385,6 +385,8 @@ ip -details link show vcan_agl | grep -qw vcan &&
 
 ## 9. PIUS用の信号へ置き換える
 
+USB-CANの接続、ビットレート設定、物理CANからAGLへの転送は [USB-CAN接続手順](USB_CAN.md) を参照してください。
+
 公式デモのID `0x3E9` とPIUSのCAN IDは別の定義です。次の対応表を実際のPIUS仕様書に基づいて埋めます。
 
 | CAN ID・形式 | 信号 | ビット位置・長さ | 符号・バイト順 | 倍率・オフセット | 単位 | VSSパス |

@@ -39,6 +39,8 @@
 | CAN転送 | [cannelloni](https://github.com/mguentner/cannelloni) | ネットワーク越しのCAN接続 |
 | AGLのCAN入力 | [Demo Control Panel（salmon版）](https://docs.automotivelinux.org/en/salmon/06_Component_Documentation/09_AGL_Demo_Control_Panel/) | 公式デモにおけるCAN転送例。版の違いに注意 |
 | WSL | [導入](https://learn.microsoft.com/ja-jp/windows/wsl/install) / [GUIアプリ](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps) | Windows側の環境準備 |
+| USB/IP | [MicrosoftのUSB接続手順](https://learn.microsoft.com/ja-jp/windows/wsl/connect-usb) / [usbipd-win](https://github.com/dorssel/usbipd-win/wiki/WSL-support) | USB-CANをWindowsからWSLへ接続 |
+| USB-CAN | [CANnectivity](https://github.com/CANnectivity/cannectivity) / [本リポジトリの接続手順](USB_CAN.md) | gs_usb方式とAGLまでの接続 |
 | QEMU | [起動オプション](https://www.qemu.org/docs/master/system/invocation.html) | 仮想ディスク・ネットワーク・共有 |
 | systemd | [サービス定義の公式マニュアルソース](https://github.com/systemd/systemd/blob/main/man/systemd.service.xml) | アプリの起動・再起動 |
 | Wayland | [公式概要](https://wayland.freedesktop.org/) | 表示の仕組み |

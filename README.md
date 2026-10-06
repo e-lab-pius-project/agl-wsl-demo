@@ -7,6 +7,7 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 - 起動イメージ: **[検証済みイメージをダウンロード](https://github.com/e-lab-pius-project/agl-wsl-demo/releases/tag/agl-20261001)**
 - イメージの出典とハッシュ: [images/README.md](images/README.md)
 - CAN入力の試験: [docs/CAN.md](docs/CAN.md)
+- USB-CANアダプターの接続: [docs/USB_CAN.md](docs/USB_CAN.md)
 - 学習用の概要: [構成要素](docs/COMPONENTS.md) / [公式リンク一覧](docs/REFERENCES.md)
 - 次の開発段階: [メーターパネル開発手順](docs/METER_DEVELOPMENT.md)
 
