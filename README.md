@@ -7,6 +7,8 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 - 起動イメージ: **[検証済みイメージをダウンロード](https://github.com/e-lab-pius-project/agl-wsl-demo/releases/tag/agl-20261001)**
 - イメージの出典とハッシュ: [images/README.md](images/README.md)
 - CAN入力の試験: [docs/CAN.md](docs/CAN.md)
+- 学習用の概要: [構成要素](docs/COMPONENTS.md) / [公式リンク一覧](docs/REFERENCES.md)
+- 次の開発段階: [メーターパネル開発手順](docs/METER_DEVELOPMENT.md)
 
 この画面は **IVI（ナビ・音楽・空調などの車載情報端末）** のデモです。メーターパネル専用の Instrument Cluster デモではありません。CAN の値を KUKSA まで届ける試験は実施済みですが、PIUS 専用メーター表示や実車接続は含みません。
 

@@ -32,6 +32,6 @@ Releases には、同じ公式ビルドにある次の情報も添付します�
 - [当該ビルドのライセンス情報](https://download.automotivelinux.org/AGL/snapshots/master/2026-10-01-b3881/qemux86-64/deploy/licenses/)
 - [当該ビルドのSPDX情報](https://download.automotivelinux.org/AGL/snapshots/master/2026-10-01-b3881/qemux86-64/deploy/spdx/)
 - [AGL ソースリポジトリ](https://git.automotivelinux.org/)
-- [AGL ビルド手順](https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/)
+- [AGL ビルドホストの準備](https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host/)
 
 SPDXとmanifestはメタデータであり、全コンポーネントのソースアーカイブそのものではありません。ソースとパッチは固定したレイヤーのレシピ・SPDXの参照先から追跡できます。
