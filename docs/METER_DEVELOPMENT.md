@@ -4,6 +4,8 @@
 
 対象: Windows 11 / WSL2 / Ubuntu 24.04 / QEMU、配布済みの AGL 21.93.0 イメージ。調査日: 2026-10-06。
 
+Flutterを初めて使う場合は、先に [Flutter入門：コマンドを実行すると何が起きるのか](FLUTTER_BASICS.md) を読んでください。doctor / create / runの意味、Engine・Dart VM・JIT、Hot Reloadと再起動の違い、AGLへ配置する理由を説明しています。
+
 ## 到達目標と確認状況
 
 最初の目標は **仮想CANで車速を送り、AGL上のメーターに同じ数値を表示すること** です。その後にPIUS用のデザインと信号対応を追加します。

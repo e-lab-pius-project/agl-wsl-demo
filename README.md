@@ -11,6 +11,7 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 - USB-CAN 2台でUbuntu ↔ AGLの疎通確認: [USBパススルーと双方向通信](docs/USB_CAN_LOOPBACK.md)
 - VESCの回転数表示: [VESC CAN → KUKSA → Flutterの手順](docs/VESC_RPM.md)
 - 学習用の資料: [用語集](docs/GLOSSARY.md) / [構成要素](docs/COMPONENTS.md) / [公式リンク一覧](docs/REFERENCES.md)
+- Flutterを初めて使う方へ: [コマンド・Engine・Dart VM・Hot Reloadの仕組み](docs/FLUTTER_BASICS.md)
 - 次の開発段階: [メーターパネル開発手順](docs/METER_DEVELOPMENT.md)
 
 この画面は **IVI（ナビ・音楽・空調などの車載情報端末）** のデモです。メーターパネル専用の Instrument Cluster デモではありません。CAN の値を KUKSA まで届ける試験は実施済みですが、PIUS 専用メーター表示や実車接続は含みません。

@@ -4,6 +4,8 @@
 
 略語・専門用語の意味は [技術用語集](GLOSSARY.md) にまとめています。
 
+Flutterの前提知識を学ぶ入口は [Flutter入門](FLUTTER_BASICS.md) です。コマンドの意味からDart VM・JIT・Hot Reload、AGL向けの配置までをつなげて説明します。
+
 確認日: 2026-10-06。まず「読む順序」の資料を読み、その後は作業に必要な項目を参照してください。`master` や `main` の資料は更新されます。配布イメージとの照合には「固定したソース」を使います。
 
 ## 読む順序
@@ -32,6 +34,10 @@
 | Flutter | [SDK archive](https://docs.flutter.dev/install/archive) | 必要なFlutterの版を選ぶ |
 | Flutter | [Linux開発環境](https://docs.flutter.dev/platform-integration/linux/setup) | コンパイラー・GTK・doctor |
 | Flutter | [UIの基本](https://docs.flutter.dev/ui) | レイアウト・描画 |
+| Flutter | [コマンド一覧](https://docs.flutter.dev/reference/flutter-cli) / [新規アプリ作成](https://docs.flutter.dev/reference/create-new-app) | doctor / create / run / build |
+| Flutter | [実行基盤の構造](https://docs.flutter.dev/resources/architectural-overview) | Framework、Engine、Embedder |
+| Flutter | [Hot Reload](https://docs.flutter.dev/tools/hot-reload) / [ビルドモード](https://docs.flutter.dev/testing/build-modes) | 状態の保持、DebugとReleaseの違い |
+| Dart | [Dartの実行方式](https://dart.dev/overview#dart-native-machine-code-jit-and-aot) | Dart VM、JIT、AOT、ランタイム |
 | Flutter | [テスト](https://docs.flutter.dev/testing/overview) | Widgetテストと結合テスト |
 | Dart | [言語ドキュメント](https://dart.dev/docs) | 型、非同期処理、Stream |
 | KUKSA | [Databroker利用ガイド](https://github.com/eclipse-kuksa/kuksa-databroker/blob/main/doc/user_guide.md) | 接続、TLS、認証、API |
