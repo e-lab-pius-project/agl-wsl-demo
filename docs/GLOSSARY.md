@@ -44,7 +44,7 @@
 | **Linuxカーネル** | CPU、メモリ、デバイスなどを管理するLinuxの中心部分。 | WSLのカーネルと、QEMU内で動くAGLのカーネルは別。 |
 | **ディストリビューション** | カーネル、コマンド、ライブラリー、管理機能などをまとめたLinuxシステム。 | UbuntuとAGLは別のディストリビューション。 |
 | **Ubuntu** | Linuxディストリビューションの一つ。 | WSL内でQEMU、開発ツール、CAN転送を動かす環境。 |
-| **Yocto Project** | 組み込み機器向けLinuxを構成・ビルドするためのプロジェクトとツール群。 | AGLのOSイメージを作る基盤。「Yacto」ではなく「Yocto」。 |
+| **Yocto Project** | 組み込み機器向けLinuxを構成・ビルドするためのプロジェクトとツール群。 | AGLのOSイメージを作る基盤。 |
 | **WSL — Windows Subsystem for Linux** | Windows上でLinux環境を利用する仕組み。 | 開発用UbuntuをWindows内で利用する。 |
 | **WSL2** | Linuxカーネルを軽量な仮想マシン内で動かすWSLの方式。 | このデモの前提。`wsl -l -v` のVERSIONで確認する。 |
 | **WSLg** | WSLのLinux GUIアプリをWindowsに表示する機能。 | QEMUのウィンドウやUbuntu上のFlutter試作画面を表示する。 |

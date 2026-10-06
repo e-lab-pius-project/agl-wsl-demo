@@ -45,7 +45,7 @@ OSを作るときに使うのが **Yocto Project / OpenEmbedded / BitBake** で�
 
 ## AGL と Yocto の違い
 
-「Yacto」は **Yocto** のことです。「Yocto Linux」という単一の汎用OSをインストールする、という理解よりも、**Yoctoの仕組みを使って用途別のLinuxを作る**と捉えると整理できます。
+Yoctoは、**用途別のLinuxを構成・ビルドするための仕組み**です。
 
 この構成で起動するOSはAGLです。Ubuntuはその外側でQEMUを動かしています。AGLのルートファイルシステムにUbuntuの `apt install` 手順をそのまま適用することはできません。
 
