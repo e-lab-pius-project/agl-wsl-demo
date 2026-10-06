@@ -39,6 +39,7 @@
 | SocketCAN | [Linuxカーネル文書](https://docs.kernel.org/networking/can.html) | CANインターフェースとソケット |
 | CAN試験 | [linux-can/can-utils](https://github.com/linux-can/can-utils) | candump / cansend / cangen |
 | CAN転送 | [cannelloni](https://github.com/mguentner/cannelloni) | ネットワーク越しのCAN接続 |
+| VESC | [CAN通信仕様](https://github.com/vedderb/bldc/blob/master/documentation/comm_can.md) / [本リポジトリのRPM表示手順](VESC_RPM.md) | STATUS受信、ERPM換算、KUKSA・Flutterへの接続 |
 | AGLのCAN入力 | [Demo Control Panel（salmon版）](https://docs.automotivelinux.org/en/salmon/06_Component_Documentation/09_AGL_Demo_Control_Panel/) | 公式デモにおけるCAN転送例。版の違いに注意 |
 | WSL | [導入](https://learn.microsoft.com/ja-jp/windows/wsl/install) / [GUIアプリ](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps) | Windows側の環境準備 |
 | USB/IP | [MicrosoftのUSB接続手順](https://learn.microsoft.com/ja-jp/windows/wsl/connect-usb) / [usbipd-win](https://github.com/dorssel/usbipd-win/wiki/WSL-support) | USB-CANをWindowsからWSLへ接続 |

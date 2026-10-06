@@ -385,6 +385,8 @@ ip -details link show vcan_agl | grep -qw vcan &&
 
 ## 9. PIUS用の信号へ置き換える
 
+VESCからモーター回転数を読む場合は [VESCのRPM表示手順](VESC_RPM.md) を参照してください。ERPMの換算、DBC・VSS対応、Flutterの購読先とデータ型の変更を扱います。
+
 USB-CANの接続、ビットレート設定、物理CANからAGLへの転送は [USB-CAN接続手順](USB_CAN.md) を参照してください。
 
 公式デモのID `0x3E9` とPIUSのCAN IDは別の定義です。次の対応表を実際のPIUS仕様書に基づいて埋めます。

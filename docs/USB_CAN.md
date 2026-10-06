@@ -338,6 +338,8 @@ USBを抜いただけでは共有登録が残る場合があります。QEMUも�
 
 ## 10. 記録する項目と参照先
 
+VESCのSTATUSを回転数表示につなぐ作業は [VESCのRPM表示手順](VESC_RPM.md) を参照してください。
+
 試験時は、アダプターの型番・ファームウェア、WSLカーネル、ドライバー、ビットレート、Classical/FD、listen-onlyの有無、使用DBC、観測したIDと値を記録します。
 
 - [Microsoft: USBデバイスをWSLへ接続](https://learn.microsoft.com/ja-jp/windows/wsl/connect-usb)

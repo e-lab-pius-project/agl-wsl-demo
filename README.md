@@ -8,6 +8,7 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 - イメージの出典とハッシュ: [images/README.md](images/README.md)
 - CAN入力の試験: [docs/CAN.md](docs/CAN.md)
 - USB-CANアダプターの接続: [docs/USB_CAN.md](docs/USB_CAN.md)
+- VESCの回転数表示: [VESC CAN → KUKSA → Flutterの手順](docs/VESC_RPM.md)
 - 学習用の資料: [用語集](docs/GLOSSARY.md) / [構成要素](docs/COMPONENTS.md) / [公式リンク一覧](docs/REFERENCES.md)
 - 次の開発段階: [メーターパネル開発手順](docs/METER_DEVELOPMENT.md)
 
