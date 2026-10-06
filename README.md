@@ -4,9 +4,9 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 
 ![WSLのQEMUで動作したAGLのホーム画面](docs/agl-home.png)
 
-起動イメージ: **[検証済みイメージをダウンロード](https://github.com/e-lab-pius-project/agl-wsl-demo/releases/tag/agl-20261001)**
-イメージの出典とハッシュ: [images/README.md](images/README.md)
-CAN入力の試験: [docs/CAN.md](docs/CAN.md)
+- 起動イメージ: **[検証済みイメージをダウンロード](https://github.com/e-lab-pius-project/agl-wsl-demo/releases/tag/agl-20261001)**
+- イメージの出典とハッシュ: [images/README.md](images/README.md)
+- CAN入力の試験: [docs/CAN.md](docs/CAN.md)
 
 この画面は **IVI（ナビ・音楽・空調などの車載情報端末）** のデモです。メーターパネル専用の Instrument Cluster デモではありません。CAN の値を KUKSA まで届ける試験は実施済みですが、PIUS 専用メーター表示や実車接続は含みません。
 
@@ -154,6 +154,8 @@ qcow2 は元ディスクの絶対パスを参照します。準備後のデー�
 起動・ホーム画面・SSH接続・正常終了、KUKSAへの仮想CAN入力を確認しました。元の検証では `/opt/agl-qemu` を使用しています。本リポジトリでは学生が通常ユーザーで使えるよう `~/agl-qemu` を標準にしています。
 
 準備処理の再実行と破損検出を検査するには、イメージ取得後に `bash tests/check-preparation.sh` を実行します。VM は起動せず、一時ディスクで検査します。
+
+2026-10-06、本リポジトリのスクリプトで未変更の公式ファイルから新しい作業用ディスクを作成し、AGLの起動、SSH、画面向き変更、SCP転送、KUKSAへの車速入力（0 → 20 → 42 → 0 km/h）、正常終了を再確認しました。準備処理の再実行による既存ディスクの保持と、破損カーネルの拒否も確認済みです。Ubuntu自体の新規インストールやRAM 8 GB機での試験は行っていません。
 
 ## 公式資料
 
