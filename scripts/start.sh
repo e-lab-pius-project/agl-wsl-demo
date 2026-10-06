@@ -19,4 +19,5 @@ exec qemu-system-x86_64 \
   -display gtk,show-cursor=on \
   -device qemu-xhci -device usb-tablet \
   -device virtio-rng-pci \
-  -serial file:serial.log
+  -serial file:serial.log \
+  "$@"

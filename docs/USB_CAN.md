@@ -4,6 +4,8 @@
 
 対象: Windows 11 / WSL2 / Ubuntu 24.04 / 本リポジトリのQEMU版AGL。確認日: 2026-10-06。
 
+この文書はcannelloniでCANを転送する構成です。QEMUへUSBを直接渡す方法とUSB-CAN 2台を使う実機通信試験は [Ubuntu ↔ AGLの疎通確認手順](USB_CAN_LOOPBACK.md) を参照してください。
+
 ## 1. 接続の構成と確認範囲
 
 **CANバス → USB-CAN → WindowsのUSB/IP転送 → WSLのSocketCAN → cannelloni → QEMU内のAGL → KUKSA → メーター** の順につなぎます。
@@ -19,7 +21,7 @@ USBデバイスを受け取るのはWSLです。QEMUへUSBを直接割り当て�
 
 **WSLのcan0にビットレートを設定します。AGLの仮想can0には設定しません。**
 
-確認済みなのは、仮想CANからAGL・KUKSAまでの接続と、確認PCのWSLに `gs_usb` / `peak_usb` / `kvaser_usb` モジュールが存在することです。今回はアダプターが未接続のため、**この手順全体のUSB-CAN実機試験は未実施**です。
+仮想CANからAGL・KUKSAまでの接続と、確認PCのWSLに `gs_usb` / `peak_usb` / `kvaser_usb` モジュールが存在することを確認済みです。2026-10-06にはUSB-CANの認識とUSBパススルーによるUbuntu ↔ AGLの実機通信も確認しました。ただし、**本書の物理CAN → cannelloni → KUKSAという経路全体の実機試験は未実施**です。
 
 ## 2. アダプターと配線を確認する
 
