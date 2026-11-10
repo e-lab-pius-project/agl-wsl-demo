@@ -2,7 +2,7 @@
 
 [起動ガイド](../README.md) · [仮想CAN試験](CAN.md) · [メーター開発](METER_DEVELOPMENT.md)
 
-対象: Windows 11 / WSL2 / Ubuntu 24.04 / 本リポジトリのQEMU版AGL。確認日: 2026-10-06。
+対象は Windows 11 / WSL2 / Ubuntu 26.04 / 本リポジトリのQEMU版AGLです。2026-10-06 の実機確認には Ubuntu 24.04 を使用しました。
 
 この文書はcannelloniでCANを転送する構成です。QEMUへUSBを直接渡す方法とUSB-CAN 2台を使う実機通信試験は [Ubuntu ↔ AGLの疎通確認手順](USB_CAN_LOOPBACK.md) を参照してください。
 
@@ -78,10 +78,10 @@ wsl -l -v
 **別のPowerShell:**
 
 ```powershell
-wsl -d Ubuntu-24.04
+wsl -d Ubuntu-26.04
 ```
 
-Ubuntuのターミナルは開いたままにします。既存環境の名前が `wsl-agl` なら読み替えてください。
+Ubuntuのターミナルは開いたままにします。別の名前で Ubuntu 26.04 を登録した場合は、`wsl -l -v` で確認した名前を使います。
 
 ### 3.3 USBデバイスを共有する
 
@@ -105,7 +105,7 @@ usbipd list
 ```powershell
 usbipd list
 $canBusId = Read-Host '共有したUSB-CANのBUSIDを入力'
-usbipd attach --wsl Ubuntu-24.04 --busid $canBusId
+usbipd attach --wsl Ubuntu-26.04 --busid $canBusId
 usbipd list
 ```
 

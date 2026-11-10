@@ -15,7 +15,7 @@ SocketCAN / gs_usb                  SocketCAN / gs_usb
 
 両方のUSB機器をWindowsからWSLへ渡した後、AだけをQEMUへUSBパススルーします。UbuntuとAGLは別々のカーネルなので、`gs_usb`も共有しません。AはUbuntuの `lsusb` にも残りますが、パススルー中はUbuntuのSocketCANから操作できません。
 
-2026-10-06に確認した構成:
+起動・接続コマンドは Ubuntu 26.04 を指定します。以下は 2026-10-06 に実機通信を確認したときの構成です。
 
 | 項目 | 検証時の値 |
 |---|---|
@@ -50,7 +50,7 @@ SocketCAN / gs_usb                  SocketCAN / gs_usb
 **PowerShell:** Ubuntuを開いたままにします。環境名は `wsl -l -v` で確認します。
 
 ```powershell
-wsl -d wsl-agl
+wsl -d Ubuntu-26.04
 ```
 
 **別の管理者PowerShell:** 同じ機器名が2台あるため、必要なら1台ずつ挿してA・Bを区別し、ラベルを付けます。
@@ -69,7 +69,7 @@ Sharedなら共有登録済みです。登録済みの機器はbind不要です�
 **PowerShell:** まずAだけをattachします。別のPowerShellを使う場合は `$canA` と `$canB` を再入力します。attachには管理者権限は不要です。
 
 ```powershell
-usbipd attach --wsl wsl-agl --busid $canA
+usbipd attach --wsl Ubuntu-26.04 --busid $canA
 ```
 
 **Ubuntu:** AのUSBバス番号・デバイス番号を記録します。
@@ -82,7 +82,7 @@ lsusb -t
 検証例は `Bus 001 Device 002: ID 1209:ca01 ...` でした。次に **PowerShell** でBをattachし、Ubuntuの `lsusb` で追加された機器を確認します。
 
 ```powershell
-usbipd attach --wsl wsl-agl --busid $canB
+usbipd attach --wsl Ubuntu-26.04 --busid $canB
 ```
 
 既に両方Attachedで区別できない場合は、QEMUが停止している状態でAを `usbipd detach --busid $canA` し、消えた行を確認してから再attachします。再attach後の番号を採用します。WindowsのBUSID `6-3` とUbuntuのUSB番号 `001/002` は別の識別子です。

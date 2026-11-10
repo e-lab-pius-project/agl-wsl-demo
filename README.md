@@ -1,6 +1,6 @@
 # AGL on WSL — 学生向け起動ガイド
 
-Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)** で、公式 Flutter IVI デモを起動するための手順とスクリプトです。AGL を WSL ディストリビューションとして直接起動する構成ではありません。
+Windows 11 の **WSL2 → Ubuntu 26.04 → QEMU → Automotive Grade Linux (AGL)** で、公式 Flutter IVI デモを起動するための手順とスクリプトです。AGL を WSL ディストリビューションとして直接起動する構成ではありません。
 
 ![WSLのQEMUで動作したAGLのホーム画面](docs/agl-home.png)
 
@@ -19,7 +19,7 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 ## 1. 用意するもの
 
 - Windows 11、Intel / AMD の x86-64 CPU、仮想化機能を有効にしたPC。
-- WSL2 と WSLg、Ubuntu 24.04 LTS。
+- WSL2 と WSLg、Ubuntu 26.04 LTS。インストールには WSL 2.4.10 以上が必要です。
 - 空き容量の目安は 15 GB 以上（Ubuntu・圧縮イメージ・展開データ・変更用ディスク）。
 - QEMU に RAM 2 GB、仮想CPU 2個を割り当てます。
 
@@ -27,26 +27,27 @@ Windows 11 の **WSL2 → Ubuntu 24.04 → QEMU → Automotive Grade Linux (AGL)
 
 ## 2. WSL と Ubuntu を入れる
 
-**管理者 PowerShell** で実行します。既に Ubuntu 24.04 がある場合は、その環境を利用できます。
+**管理者 PowerShell** で実行します。Ubuntu 24.04 を使っている場合も、Ubuntu 26.04 を別のディストリビューションとして追加できます。
 
 ```powershell
-wsl --install -d Ubuntu-24.04
+wsl --install -d Ubuntu-26.04
 wsl --update
 ```
 
-要求された場合は Windows を再起動し、Ubuntu の初回画面でユーザー名とパスワードを設定します。
+要求された場合は Windows を再起動します。WSL のバージョンが古くてインストールに失敗した場合は、`wsl --update` の後にインストールを再実行します。Ubuntu の初回画面ではユーザー名とパスワードを設定します。
 
 ```powershell
 wsl --version
 wsl -l -v
-wsl -d Ubuntu-24.04
+wsl -d Ubuntu-26.04
 ```
 
-`wsl -l -v` の VERSION が **2** であることを確認します。`wsl --version` に出る 3.x などの数字は WSL アプリの版であり、この VERSION とは別です。以下の Bash コマンドは **WSL の Ubuntu** で実行します。
+`wsl -l -v` で `Ubuntu-26.04` の VERSION が **2** であることを確認します。`wsl --version` に出る 3.x などの数字は WSL アプリの版であり、この VERSION とは別です。以下の Bash コマンドは **WSL の Ubuntu** で実行します。
 
 ## 3. ツールとリポジトリを準備する
 
 ```bash
+grep '^PRETTY_NAME=' /etc/os-release
 sudo apt update
 sudo apt install -y git curl xz-utils qemu-system-x86 qemu-system-gui qemu-utils openssh-client
 git clone https://github.com/e-lab-pius-project/agl-wsl-demo.git
@@ -106,7 +107,7 @@ SSH の転送先は **WSL の 127.0.0.1:2222** で、LANには公開しません
 
 ## 6. ファイルの編集・転送
 
-WSL 内のソースは Windows のエクスプローラーから `\\wsl.localhost\Ubuntu-24.04\home\<Ubuntuのユーザー名>\` で開けます。これは **WSL のファイル**であり、QEMU 内の AGL のファイルとは別です。
+WSL 内のソースは Windows のエクスプローラーから `\\wsl.localhost\Ubuntu-26.04\home\<Ubuntuのユーザー名>\` で開けます。これは **WSL のファイル**であり、QEMU 内の AGL のファイルとは別です。
 
 WSL で作ったファイルを AGL の `/tmp` に送る例（WSL で実行）:
 
@@ -124,7 +125,7 @@ scp -O -o UserKnownHostsFile="$HOME/agl-qemu/known_hosts" -P 2222 ./example.txt 
 | `/dev/kvm` の権限がない | 所有グループが `kvm` なら `sudo usermod -aG kvm "$USER"` を実行し、Ubuntu を終了して入り直します。`id` と KVM OK を再確認します。 |
 | GUI が出ない | `echo "$DISPLAY"` と WSLg を確認します。`sudo` で起動せず通常の Ubuntu ユーザーで起動します。 |
 | SSH が Connection refused | QEMU を起動し、ゲストの起動完了を待ちます。`tail -n 80 ~/agl-qemu/serial.log` を確認します。 |
-| 2222番ポートが使用中 | 先に起動したQEMUがないか確認します。同時に複数起動しないでください。 |
+| 2222番ポートが使用中 | WSLで `ss -ltnp 'sport = :2222'` を実行し、ポートを使っているプロセスを確認します。別の WSL ディストリビューションで起動したQEMUやSSH転送も確認してください。 |
 | イメージ取得が失敗 | 通信と Releases を確認します。下記の公式配布元への切り替えも可能です。 |
 | SHA-256 が不一致 | スクリプトは停止します。不一致のファイルだけを別名に退避し、再取得してください。照合を省略しないでください。 |
 | 起動が重い | WindowsとWSLのメモリ使用量を確認します。GPU加速は未検証で、通常の `virtio-vga` 表示を使っています。 |
@@ -144,6 +145,14 @@ export AGL_DIR="$HOME/agl-qemu"
 qcow2 は元ディスクの絶対パスを参照します。準備後のデータフォルダーは、そのまま別の場所に移動しないでください。
 
 ## 検証記録
+
+### Ubuntu 26.04 での確認（2026-11-10）
+
+WSL 3.0.3.0（WSL2）、Ubuntu 26.04.1 LTS、QEMU 10.2.1（KVM）で配布版 `agl-20261001` を起動しました。WSLgでの初回画面の表示、SSH接続、SCP転送、正常終了を確認しました。仮想CANから送った車速はKUKSAで 0 → 20 → 42 → 0 km/h に変化しました。
+
+`bash tests/check-preparation.sh` では、作業用ディスクの作成と再実行時の保持、破損したカーネルの拒否を確認しました。
+
+### Ubuntu 24.04 での確認
 
 2026-10-01 の検証構成:
 
@@ -166,6 +175,7 @@ qcow2 は元ディスクの絶対パスを参照します。準備後のデー�
 ## 公式資料
 
 - [AGL: Using Ready Made Images](https://docs.automotivelinux.org/en/master/01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images/)
+- [Ubuntu: WSL2 への Ubuntu 26.04 のインストール](https://ubuntu.com/wsl/docs/latest/howto/install-ubuntu-wsl2/)
 - [Microsoft: WSL のインストール](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 - [Microsoft: WSL の GUI アプリ](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gui-apps)
 - [QEMU: 起動オプション](https://www.qemu.org/docs/master/system/invocation.html)

@@ -2,7 +2,7 @@
 
 [起動ガイド](../README.md) · [構成要素](COMPONENTS.md) · [公式リンク一覧](REFERENCES.md) · [CAN試験](CAN.md)
 
-対象: Windows 11 / WSL2 / Ubuntu 24.04 / QEMU、配布済みの AGL 21.93.0 イメージ。調査日: 2026-10-06。
+対象は Windows 11 / WSL2 / Ubuntu 26.04 / QEMU と、配布済みの AGL 21.93.0 イメージです。AGLの調査日は 2026-10-06 です。
 
 Flutterを初めて使う場合は、先に [Flutter入門：コマンドを実行すると何が起きるのか](FLUTTER_BASICS.md) を読んでください。doctor / create / runの意味、Engine・Dart VM・JIT、Hot Reloadと再起動の違い、AGLへ配置する理由を説明しています。
 
